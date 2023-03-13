@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: black;
 }
 
 main {
@@ -16,11 +17,7 @@ main {
     scale: 3;
 }
 
-.border {
-    border: 1px solid black;
-}
-
-#spite {
+#sprite {
     translate: 24px 32px;
 }
 #bg {
@@ -33,7 +30,6 @@ main {
 
 @keyframes scale {
     50% {
-        scale: 3.5;
-        filter: hue-rotate(1turn);
+        scale: 15;
     }
 }

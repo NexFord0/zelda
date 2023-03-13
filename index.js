@@ -5,6 +5,8 @@ const time = 1/24;
 let max_height = window.innerHeight/2;
 let max_width = window.innerWidth/2;
 let speed = 10;
+let isColor = false;
+let color = "#000000";
 
 let img;
 let sprite;
@@ -17,11 +19,12 @@ async function init() {
     // await delay(1);
     get_value();
     change_style();
+    change_color();
     await move();
 }
 
 const get_value = () => {
-    img = document.querySelector("#spite");
+    img = document.querySelector("#sprite");
     sprite = document.querySelector("main");
     audio = document.querySelector("audio");
 }
@@ -31,6 +34,28 @@ const change_style = () => {
     sprite.style.height = `${sprite_height}px`;
     sprite.style.left = `calc(50vw - ${sprite_width/2}px)`;
     sprite.style.top = `calc(50vh - ${sprite_height/2}px)`;
+}
+
+const change_color = () => {
+    setInterval(() => {
+        color = "#000000"
+        if (isColor) {
+            color = randomColor();
+        }
+        document.body.style.backgroundColor = color;
+    }, 100)
+}
+
+const randomColor = () => {
+    return `#${formatHexa()}${formatHexa()}${formatHexa()}`;
+}
+
+const formatHexa = () => {
+    const hexa = Math.trunc(Math.random()*256).toString(16)
+    if (hexa.length === 1) {
+        return `0${hexa}`
+    }
+    return hexa
 }
 
 function delay(n) {
@@ -68,6 +93,7 @@ onkeyup = (e) => {
     }
     if (e.key === " ") {
         sprite.style.animation = "";
+        isColor = false
         speed=10;
         audio.pause();
         audio.currentTime = 0;
@@ -89,8 +115,18 @@ onkeydown = (e) => {
     }
     if (e.key === " ") {
         sprite.style.animation = "1s scale infinite";
+        isColor = true;
         speed=10*3;
         audio.play();
+    }
+    if (e.key === "€") {
+        audio.src = "etoile_mario.mp3";
+    }
+    if (e.key === "Delete") {
+        audio.src = "bonne_apremidi_boost.mp3";
+    }
+    if (e.key === "*") {
+        audio.src = "je_suis_genieur.mp3"
     }
     change_direction();
 }
