@@ -174,10 +174,17 @@ const deplacement = () => {
     sprite.style.translate = `${positionX}px ${positionY}px`;
 }
 
+const resetIs = () => {
+    isDown = false;
+    isUp = false;
+    isLeft = false;
+    isRight = false;
+}
 
 const mobile = () => {
     const leftTop = document.getElementById("leftTop")
     leftTop.addEventListener("mousedown", () => {
+        resetIs();
         isUp = false;
         isLeft = false;
     })
@@ -187,6 +194,7 @@ const mobile = () => {
     })
     const top = document.getElementById("top")
     top.addEventListener("mousedown", () => {
+        resetIs();
         isUp = false;
     })
     top.addEventListener("mouseup", () => {
@@ -194,6 +202,7 @@ const mobile = () => {
     })
     const rightTop = document.getElementById("rightTop")
     rightTop.addEventListener("mousedown", () => {
+        resetIs();
         isUp = false;
         isRight = false;
     })
@@ -203,6 +212,7 @@ const mobile = () => {
     })
     const left = document.getElementById("left")
     left.addEventListener("mousedown", () => {
+        resetIs();
         isLeft = false;
     })
     left.addEventListener("mouseup", () => {
@@ -223,6 +233,7 @@ const mobile = () => {
     })
     const right = document.getElementById("right")
     right.addEventListener("mousedown", () => {
+        resetIs();
         isRight = false;
     })
     right.addEventListener("mouseup", () => {
@@ -230,6 +241,7 @@ const mobile = () => {
     })
     const leftBottom = document.getElementById("leftBottom")
     leftBottom.addEventListener("mousedown", () => {
+        resetIs();
         isDown = false;
         isLeft = false;
     })
@@ -239,6 +251,7 @@ const mobile = () => {
     })
     const bottom = document.getElementById("bottom")
     bottom.addEventListener("mousedown", () => {
+        resetIs();
         isDown = false;
     })
     bottom.addEventListener("mouseup", () => {
@@ -246,6 +259,7 @@ const mobile = () => {
     })
     const rightBottom = document.getElementById("rightBottom")
     rightBottom.addEventListener("mousedown", () => {
+        resetIs();
         isDown = false;
         isRight = false;
     })
