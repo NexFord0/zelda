@@ -20,6 +20,7 @@ async function init() {
     get_value();
     change_style();
     change_color();
+    mobile();
     await move();
 }
 
@@ -171,3 +172,86 @@ const deplacement = () => {
     }
     sprite.style.translate = `${positionX}px ${positionY}px`;
 }
+
+
+const mobile = () => {
+    const leftTop = document.getElementById("leftTop")
+    leftTop.addEventListener("mousedown", () => {
+        isUp = false;
+        isLeft = false;
+    })
+    leftTop.addEventListener("mouseup", () => {
+        isUp = true;
+        isLeft = false;
+    })
+    const top = document.getElementById("top")
+    top.addEventListener("mousedown", () => {
+        isUp = false;
+    })
+    top.addEventListener("mouseup", () => {
+        isUp = true;
+    })
+    const rightTop = document.getElementById("rightTop")
+    rightTop.addEventListener("mousedown", () => {
+        isUp = false;
+        isRight = false;
+    })
+    rightTop.addEventListener("mouseup", () => {
+        isUp = true;
+        isRight = true;
+    })
+    const left = document.getElementById("left")
+    left.addEventListener("mousedown", () => {
+        isLeft = false;
+    })
+    left.addEventListener("mouseup", () => {
+        isLeft = true;
+    })
+    const center = document.getElementById("center")
+    center.addEventListener("mousedown", () => {
+        isLeft = false;
+        isRight = false;
+        isTop = false;
+        isDown = false;
+    })
+    center.addEventListener("mouseup", () => {
+        isLeft = true;
+        isRight = true;
+        isTop = true;
+        isDown = true;
+    })
+    const right = document.getElementById("right")
+    right.addEventListener("mousedown", () => {
+        isRight = false;
+    })
+    right.addEventListener("mouseup", () => {
+        isRight = true;
+    })
+    const leftBottom = document.getElementById("leftBottom")
+    leftBottom.addEventListener("mousedown", () => {
+        isDown = false;
+        isLeft = false;
+    })
+    leftBottom.addEventListener("mouseup", () => {
+        isDown = true;
+        isLeft = true;
+    })
+    const bottom = document.getElementById("bottom")
+    bottom.addEventListener("mousedown", () => {
+        isDown = false;
+    })
+    bottom.addEventListener("mouseup", () => {
+        isDown = true;
+    })
+    const rightBottom = document.getElementById("rightBottom")
+    rightBottom.addEventListener("mousedown", () => {
+        isDown = false;
+        isRight = false;
+    })
+    rightBottom.addEventListener("mouseup", () => {
+        isDown = true;
+        isRight = true;
+    })
+}
+
+init();

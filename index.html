@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <title>Zelda</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <audio src="gas_gas_gas_cut.mp3" preload="auto" loop></audio>
     <main>
         <img id="sprite" src="sprite_zelda.png" alt="sprite image">
     </main>
-    <script>
-        init();
-    </script>
+    <div id="grid">
+        <div class="card" id="leftTop"></div>
+        <div class="card" id="top"></div>
+        <div class="card" id="rightTop"></div>
+        <div class="card" id="left"></div>
+        <div class="card" id="center"></div>
+        <div class="card" id="right"></div>
+        <div class="card" id="leftBottom"></div>
+        <div class="card" id="bottom"></div>
+        <div class="card" id="rightBottom"></div>
+    </div>
+    <div id="credit">By NexFord</div>
 </body>
 </html>
