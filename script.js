@@ -183,6 +183,10 @@ const resetIs = () => {
 
 const mobile = () => {
     const credit = document.getElementById("credit")
+    sprite.addEventListener("click", () => {
+        audio.src = "gas_gas_gas_cut.mp3";
+        isColor =! isColor;
+    })
     credit.addEventListener("click", () => {
         audio.src = "gas_gas_gas_cut.mp3";
         isColor =! isColor;
