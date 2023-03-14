@@ -69,6 +69,7 @@ async function move() {
     for (let id_frame = 0; id_frame < nbW; id_frame++) {
         img.style.translate = `-${id_frame*sprite_width-0.3+(mode_frame===4?0.7:0)}px -${(mode_frame-1)*sprite_height+0.5}px`;
         deplacement();
+        change_direction();
         await delay(time);
     }
     await move();
@@ -182,7 +183,7 @@ const mobile = () => {
     })
     leftTop.addEventListener("mouseup", () => {
         isUp = true;
-        isLeft = false;
+        isLeft = true;
     })
     const top = document.getElementById("top")
     top.addEventListener("mousedown", () => {
@@ -211,13 +212,13 @@ const mobile = () => {
     center.addEventListener("mousedown", () => {
         isLeft = false;
         isRight = false;
-        isTop = false;
+        isUp = false;
         isDown = false;
     })
     center.addEventListener("mouseup", () => {
         isLeft = true;
         isRight = true;
-        isTop = true;
+        isUp = true;
         isDown = true;
     })
     const right = document.getElementById("right")
