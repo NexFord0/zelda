@@ -182,6 +182,11 @@ const resetIs = () => {
 }
 
 const mobile = () => {
+    const credit = document.getElementById("credit")
+    credit.addEventListener("click", () => {
+        audio.src = "gas_gas_gas_cut.mp3";
+        isColor =! isColor;
+    })
     const leftTop = document.getElementById("leftTop")
     leftTop.addEventListener("mousedown", () => {
         resetIs();
