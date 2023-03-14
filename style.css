@@ -8,6 +8,7 @@ html, body {
 }
 
 main {
+    z-index: 100;
     position: relative;
     width: 24px;
     height: 32px;
