@@ -94,11 +94,8 @@ onkeyup = (e) => {
         isDown = false;
     }
     if (e.key === " ") {
-        sprite.style.animation = "";
-        isColor = false
-        speed=10;
-        audio.pause();
-        audio.currentTime = 0;
+        isColor = false;
+        rainbowMode()
     }
     change_direction();
 }
@@ -116,10 +113,8 @@ onkeydown = (e) => {
         isDown = true;
     }
     if (e.key === " ") {
-        sprite.style.animation = "1s scale infinite";
         isColor = true;
-        speed=10*3;
-        audio.play();
+        rainbowMode();
     }
     if (e.key === "€") {
         audio.src = "etoile_mario.mp3";
@@ -131,6 +126,21 @@ onkeydown = (e) => {
         audio.src = "je_suis_genieur.mp3"
     }
     change_direction();
+}
+
+const rainbowMode = () => {
+    if (isColor) {
+        sprite.style.animation = "1s scale infinite";
+        isColor = true;
+        speed = 10 * 3;
+        audio.play();
+    } else {
+        sprite.style.animation = "";
+        isColor = false
+        speed=10;
+        audio.pause();
+        audio.currentTime = 0;
+    }
 }
 
 const change_direction = () => {
@@ -186,10 +196,12 @@ const mobile = () => {
     sprite.addEventListener("click", () => {
         audio.src = "gas_gas_gas_cut.mp3";
         isColor =! isColor;
+        rainbowMode();
     })
     credit.addEventListener("click", () => {
         audio.src = "gas_gas_gas_cut.mp3";
         isColor =! isColor;
+        rainbowMode();
     })
     const leftTop = document.getElementById("leftTop")
     leftTop.addEventListener("mousedown", () => {
